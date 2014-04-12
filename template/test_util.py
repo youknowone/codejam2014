@@ -4,7 +4,7 @@ util.DEBUG = True
 from util import Plain
 
 def test_plain():
-    p = Plain(5, 7)
+    p = Plain((5, 7))
     p.debug()
     p[1, 2] = 10
     assert p[1, 2] == 10

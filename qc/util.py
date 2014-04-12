@@ -46,11 +46,13 @@ class Plain(object):
 
     def __getitem__(self, coord):
         r, c = coord
+        assert r < self.size[0] and c < self.size[1]
         index = r * self.size[1] + c
         return self.data[index]
 
     def __setitem__(self, coord, item):
         r, c = coord
+        assert r < self.size[0] and c < self.size[1]
         index = r * self.size[1] + c
         self.data[index] = item
 
