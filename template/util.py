@@ -38,3 +38,25 @@ def print_case(count, fmt, *args):
         print prefix, fmt % args
     else:
         print prefix, fmt
+
+class Plain(object):
+    def __init__(self, R, C):
+        self.R = R
+        self.C = C
+        self.data = [None] * (R * C)
+
+    def __getitem__(self, coord):
+        r, c = coord
+        index = r * self.C + c
+        return self.data[index]
+
+    def __setitem__(self, coord, item):
+        r, c = coord
+        index = r * self.C + c
+        self.data[index] = item
+
+    def debug(self):
+        debug('Plain {}x{}'.format(self.R, self.C))
+        for r in xrange(0, self.R):
+            row = [self[r, c] for c in xrange(0, self.C)]
+            debug(row)
